@@ -20,9 +20,12 @@ var _nodeFetch = require('node-fetch');
 
 var _nodeFetch2 = _interopRequireDefault(_nodeFetch);
 
+var _v = require('uuid/v4');
+
+var _v2 = _interopRequireDefault(_v);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// or secp256k1/elliptic
 class BitpayNodeClient {
 
   constructor({
@@ -57,6 +60,10 @@ class BitpayNodeClient {
   request(method, path, payload = null) {
     if (this.facade !== null) {
       payload.token = this.tokenMap[this.facade];
+    }
+
+    if (method === 'POST') {
+      payload.guid = (0, _v2.default)();
     }
 
     const url = `${this.baseUrl}/${path}`;
@@ -178,7 +185,8 @@ class BitpayNodeClient {
     return buf.toString('utf8');
   }
 }
-exports.default = BitpayNodeClient;
+exports.default = BitpayNodeClient; // or secp256k1/elliptic
+
 BitpayNodeClient.Facade = {
   POS: 'pos',
   MERCHANT: 'merchant'
