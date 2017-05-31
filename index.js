@@ -6,6 +6,10 @@ const bitpay = new BitpayNodeClient({
 })
 
 bitpay.getTokens()
-  .then((tokens) => {
-    console.log('tokens', tokens)
+  .then(() => bitpay.asMerchant().post('invoices', {
+    price: 1,
+    currency: 'USD'
+  }))
+  .then((invoices) => {
+    console.log('invoices', invoices)
   })
