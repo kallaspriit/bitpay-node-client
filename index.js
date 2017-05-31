@@ -1,3 +1,3 @@
-const BitpayNodeClient = require('./dist/BitpayNodeClient')
+const BitpayNodeClient = require('./dist/BitpayNodeClient').default
 
 module.exports = BitpayNodeClient
