@@ -1,0 +1,22 @@
+{
+  "name": "bitpay-node-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "babel-node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bs58": "^4.0.0",
+    "node-fetch": "^1.7.0",
+    "secp256k1": "^3.2.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "standard": "^10.0.2"
+  }
+}
