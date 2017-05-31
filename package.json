@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "init": "mkdir dist",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean && npm run init",
+    "build": "babel ./lib -d ./dist",
+    "prepublish": "npm run build",
     "lint": "standard",
     "example": "babel-node examples/create-invoice"
   },
@@ -22,6 +27,9 @@
     "standard": "^10.0.2"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "ignore": [
+      "dist/"
+    ]
   }
 }

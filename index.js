@@ -1,3 +1,3 @@
-import BitpayNodeClient from './lib/BitpayNodeClient'
+const BitpayNodeClient = require('./dist/BitpayNodeClient')
 
-export default BitpayNodeClient
+module.exports = BitpayNodeClient
