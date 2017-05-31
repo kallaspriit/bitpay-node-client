@@ -1,8 +1,11 @@
 import fs from 'fs'
-import BitpayNodeClient from './lib/BitpayNodeClient'
+import path from 'path'
+import BitpayNodeClient from '../lib/BitpayNodeClient'
 
+const privateKeyFilename = path.join(__dirname, '..', 'api.key')
+const encryptedPrivateKey = fs.readFileSync(privateKeyFilename, 'utf8')
 const bitpay = new BitpayNodeClient({
-  encryptedPrivateKey: fs.readFileSync('api.key', 'utf8')
+  encryptedPrivateKey
 })
 
 bitpay.getTokens()
